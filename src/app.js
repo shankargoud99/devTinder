@@ -1,18 +1,36 @@
 const express = require("express");
-
+const connectDB=require("./config/database")
 const app = express();
+const User=require("./models/user");
 
-app.get("/getuserdata", (req, res) => {
-    throw new Error("fjkdd");   // simulate error
-    res.send("data sent");
+app.post("/signup",async (req,res)=>{
+    //creating a new instance of the user model
+    const user=new User({
+        firstName:"virat",
+        lastName:"kholi",
+        emailId:"virat@gmail.com",
+        password:"virat@195"
+    });
+    try{
+    await user.save();
+    res.send("User Added successfully");
+    }catch(err){
+        res.status(400).send("Error saving the user"+err.message)
+    }
 });
 
-// ✅ error handling middleware must be LAST
-app.use((err, req, res, next) => {
-    console.error(err.message);
-    res.status(500).send("Something went wrong");
-});
 
-app.listen(3000, () => {
+
+connectDB()
+.then(()=>{
+    console.log("Database connection established");
+    app.listen(3000, () => {
     console.log("server is connected to 3000");
 });
+
+})
+.catch((err)=>{
+    console.error("Database cannot be connected")
+});
+
+
