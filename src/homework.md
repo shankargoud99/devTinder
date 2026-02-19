@@ -14,3 +14,7 @@ write a dummy middlware for Admin as wll as user also.
 -create post/signup API to add data to database
 -push some documents usng api calls frompostman
 -Errro handling with try catch
+
+-differnce bw json and javascript object
+-Add the express.json middlware to your app
+-make your singnup api dyanamic to recive data from end user(postman)
