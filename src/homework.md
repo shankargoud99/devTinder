@@ -20,3 +20,4 @@ write a dummy middlware for Admin as wll as user also.
 -make your singnup api dyanamic to recive data from end user(postman)
 -create delete API
 -difference b/w patch and put
+-NEVER TRUST on req.body
