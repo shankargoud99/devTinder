@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+@plugin "daisyui";
+
+:root {
+  /* Core palette — dark, terminal/git inspired */
+  --dc-bg: #0b0f14;
+  --dc-surface: #12171d;
+  --dc-surface-raised: #171d24;
+  --dc-border: #232b33;
+  --dc-text: #e7ecef;
+  --dc-text-muted: #8b98a5;
+
+  --dc-accent: #4ade80;
+  --dc-accent-dim: #234d34;
+  --dc-secondary: #8b7fd1;
+  --dc-warning: #f5a623;
+  --dc-danger: #f2545b;
+}
+
+html {
+  background: var(--dc-bg);
+  color-scheme: dark;
+}
+
+body {
+  background: var(--dc-bg);
+  color: var(--dc-text);
+  font-family: 'Inter', system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+}
+
+.font-mono, code, .skill-tag {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+.skill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 0.3rem;
+  background: var(--dc-surface-raised);
+  border: 1px solid var(--dc-border);
+  color: var(--dc-accent);
+  line-height: 1.4;
+}
+.skill-tag::before {
+  content: "#";
+  color: var(--dc-text-muted);
+}
+
+.branch-line {
+  position: relative;
+  padding-left: 1.1rem;
+}
+.branch-line::before {
+  content: "";
+  position: absolute;
+  left: 0.25rem;
+  top: 0.15rem;
+  bottom: 0.15rem;
+  width: 2px;
+  border-radius: 2px;
+}
+.branch-line.state-pending::before {
+  background-image: linear-gradient(var(--dc-warning) 60%, transparent 40%);
+  background-size: 2px 8px;
+  background-repeat: repeat-y;
+}
+.branch-line.state-connected::before {
+  background: var(--dc-accent);
+}
+
+.dc-card {
+  background: var(--dc-surface);
+  border: 1px solid var(--dc-border);
+  border-radius: 0.75rem;
+}
+
+.dc-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+.dc-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--dc-border);
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
